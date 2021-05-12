@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using IIG.PasswordHashingUtils;
 
 namespace Labs2_4
 {
@@ -10,6 +11,8 @@ namespace Labs2_4
     {
         static void Main(string[] args)
         {
+            //PasswordHasher.Init("", 0);                
+           
         }
     }
 }
