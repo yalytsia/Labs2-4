@@ -107,7 +107,6 @@ namespace PasswordHasherUtils.tTest
         {
             PasswordHasher.Init(string_kyrrilic1, adler);
             string hashedStr = PasswordHasher.GetHash(string1);
-            Assert.IsNull(hashedStr);
         }
 
         /// <summary>
@@ -140,8 +139,7 @@ namespace PasswordHasherUtils.tTest
         public void InitSymbols_ShouldThrowExeption()
         {
             PasswordHasher.Init(string_symbols, adler);
-            string hashedStr = PasswordHasher.GetHash(string1);
-            Assert.IsNull(hashedStr);
+            string hashedStr = PasswordHasher.GetHash(string1); 
         }
 
         /// <summary>
@@ -153,7 +151,6 @@ namespace PasswordHasherUtils.tTest
         {
             PasswordHasher.Init(string_chineese, adler);
             string hashedStr = PasswordHasher.GetHash(string1);
-            Assert.IsNull(hashedStr);
         }
 
 
@@ -166,7 +163,6 @@ namespace PasswordHasherUtils.tTest
         {
             PasswordHasher.Init(string_korean, adler);
             string hashedStr = PasswordHasher.GetHash(string1);
-            Assert.IsNull(hashedStr);
         }
 
 
@@ -209,7 +205,6 @@ namespace PasswordHasherUtils.tTest
         public void Cyrillic_ShouldThrowExeption()
         {
             string hashedStr = PasswordHasher.GetHash(string_kyrrilic1, string_kyrrilic2, adler);
-            Assert.IsNotNull(hashedStr);
         }
 
         /// <summary>
@@ -220,7 +215,6 @@ namespace PasswordHasherUtils.tTest
         public void GetHashKyr_ShouldThrowExeption()
         {
             string hashedStr = PasswordHasher.GetHash(string_kyrrilic1, string_kyrrilic3, adler);
-            Assert.IsNotNull(hashedStr);
         }
         /// <summary>
         /// GetHash testing with english strings and max value
