@@ -11,9 +11,9 @@ namespace PasswordHasherUtils.tTest
         private string string1 = "string123";
         private string string_lat1 = "sugar";
         private string string_lat3 = "üæåøùçéñ";
-        private string string_kyrrilic1 = "древляне";
-        private string string_kyrrilic2 = "ВлАдИмИр";
-        private string string_kyrrilic3 = "ЇїъЪёЁІііІІ";
+        private string string_сyrillic1 = "древляне";
+        private string string_сyrillic2 = "ВлАдИмИр";
+        private string string_сyrillic3 = "ЇїъЪёЁІііІІ";
         private string string_chineese = "魔道祖师";
         private string string_korean = "사랑";
         private string string_emo = "🌑🌒	🌓🌔🌕🌖🌗🌘";
@@ -99,26 +99,27 @@ namespace PasswordHasherUtils.tTest
         }
 
         /// <summary>
-        /// Init testing with kyrrilic letters and medium value
+        /// Init testing with сyrillic letters and medium value
         /// </summary>
         [TestMethod]
-        [ExpectedException(typeof(OverflowException))]
-        public void InitCyrillic_ShouldThrowExeption()
+        
+        public void InitCyrillic_ShouldPass()
         {
-            PasswordHasher.Init(string_kyrrilic1, adler);
+            PasswordHasher.Init(string_сyrillic1, adler);
             string hashedStr = PasswordHasher.GetHash(string1);
+            Assert.IsNotNull(hashedStr);
         }
 
         /// <summary>
         /// Init testing with emojies and medium value
         /// </summary>
         [TestMethod]
-        [ExpectedException(typeof(OverflowException))]
-        public void InitEmo_ShouldThrowExeption()
+        
+        public void InitEmo_ShouldPass()
         {
             PasswordHasher.Init(string_emo, adler);
             string hashedStr = PasswordHasher.GetHash(string1);
-            Assert.IsNull(hashedStr);
+            Assert.IsNotNull(hashedStr);
         }
         /// <summary>
         /// Init testing with numbers and medium value
@@ -135,22 +136,24 @@ namespace PasswordHasherUtils.tTest
         /// Init testing with symbols and medium value
         /// </summary>
         [TestMethod]
-        [ExpectedException(typeof(OverflowException))]
-        public void InitSymbols_ShouldThrowExeption()
+        
+        public void InitSymbols_ShouldPass()
         {
             PasswordHasher.Init(string_symbols, adler);
-            string hashedStr = PasswordHasher.GetHash(string1); 
+            string hashedStr = PasswordHasher.GetHash(string1);
+            Assert.IsNotNull(hashedStr);
         }
 
         /// <summary>
         /// Init testing with chineese and medium value
         /// </summary>
         [TestMethod]
-        [ExpectedException(typeof(OverflowException))]
-        public void InitChineese_ShouldThrowExeption()
+        
+        public void InitChineese_ShouldPass()
         {
             PasswordHasher.Init(string_chineese, adler);
             string hashedStr = PasswordHasher.GetHash(string1);
+            Assert.IsNotNull(hashedStr);
         }
 
 
@@ -158,11 +161,12 @@ namespace PasswordHasherUtils.tTest
         /// Init testing with korean and medium value
         /// </summary>
         [TestMethod]
-        [ExpectedException(typeof(OverflowException))]
-        public void InitKoreans_ShouldThrowExeption()
+        
+        public void InitKoreans_ShouldPass()
         {
             PasswordHasher.Init(string_korean, adler);
             string hashedStr = PasswordHasher.GetHash(string1);
+            Assert.IsNotNull(hashedStr);
         }
 
 
@@ -198,23 +202,24 @@ namespace PasswordHasherUtils.tTest
         }
 
         /// <summary>
-        /// GetHash testing with kyrrilics and medium value
+        /// GetHash testing with сyrillics and medium value
         /// </summary>
         [TestMethod]
-        [ExpectedException(typeof(OverflowException))]
-        public void Cyrillic_ShouldThrowExeption()
+        
+        public void Cyrillic_ShouldPass()
         {
-            string hashedStr = PasswordHasher.GetHash(string_kyrrilic1, string_kyrrilic2, adler);
+            string hashedStr = PasswordHasher.GetHash(string_сyrillic1, string_сyrillic2, adler);
         }
 
         /// <summary>
-        /// GetHash testing with kyrrilics and medium value
+        /// GetHash testing with сyrillics and medium value
         /// </summary>
         [TestMethod]
-        [ExpectedException(typeof(OverflowException))]
-        public void GetHashKyr_ShouldThrowExeption()
+        
+        public void GetHashCyr_ShouldPass()
         {
-            string hashedStr = PasswordHasher.GetHash(string_kyrrilic1, string_kyrrilic3, adler);
+            string hashedStr = PasswordHasher.GetHash(string_сyrillic1, string_сyrillic3, adler);
+            Assert.IsNotNull(hashedStr);
         }
         /// <summary>
         /// GetHash testing with english strings and max value
